@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4939715739667996782}
   - component: {fileID: 4536439813341853134}
   - component: {fileID: 532512971893976757}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af403d3d1d7033049967741d53b5c9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  harakethizi: 8
 --- !u!1 &875593738248763495
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4390838142647510544}
   - component: {fileID: 6303931486499935809}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "K\xFC\xE7\xFCk"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9148237883237472483}
   - component: {fileID: 9018993783908318320}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: "B\xFCy\xFCk"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3396,6 +3396,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 532512971893976757, guid: dc5f448366c369e4e9a3c9e779f520d3, type: 3}
+      propertyPath: harakethizi
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 859131610073989075, guid: dc5f448366c369e4e9a3c9e779f520d3, type: 3}
       propertyPath: m_Name
       value: Mario

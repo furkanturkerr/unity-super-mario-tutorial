@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class OyucuHareketi : MonoBehaviour
@@ -5,15 +6,15 @@ public class OyucuHareketi : MonoBehaviour
     private new Camera camera;
     private new Rigidbody2D rigidbody;
 
-    public float harakethizi = 8f;
     private Vector2 vector2;
-
     private float Ýnputaxis;
-    private float maxziplama = 5f;
-    private float maxziplamasuresi = 1f;
+    
+    public float harakethizi = 8f;
+    public float maxziplama = 5f;
+    public float maxziplamasuresi = 1f;
 
-    public float ziplamakuvveti => (2f * maxziplamasuresi) / (maxziplama / 2f);
-    public float gravity => (-2f * maxziplamasuresi) / Mathf.Pow((maxziplama / 2f), 2);
+    public float ziplamakuvveti => (2f * maxziplama) / (maxziplamasuresi / 2f);
+    public float gravity => (-2f * maxziplama) / Mathf.Pow((maxziplamasuresi / 2f), 2);
 
     public bool yerde {  get; private set; }
     public bool havada { get; private set; }
@@ -27,6 +28,35 @@ public class OyucuHareketi : MonoBehaviour
     public void Update()
     {
         YatayHaraket();
+
+        yerde = rigidbody.Raycast(Vector2.down);//eðer yere deðiyorsa
+        if (yerde)
+        {
+            yerdehareket();
+        }
+
+        yercekimiuygula();  
+    }
+
+    public void yerdehareket()
+    {
+        vector2.y = Mathf.Max(vector2.y, 0f);
+        havada = vector2.y > 0f;
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            vector2.y = ziplamakuvveti;
+            havada = true;
+        }
+    }
+
+    public void yercekimiuygula()
+    {
+        bool falling = vector2.y < 0f || !Input.GetButton("Jump");
+        float multiplier = falling ? 2f : 1f;
+
+        vector2.y += gravity * multiplier * Time.deltaTime;
+        vector2.y = Mathf.Max(vector2.y, gravity / 2f);
     }
 
     public void YatayHaraket()
